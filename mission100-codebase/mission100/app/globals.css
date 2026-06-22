@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold: #C8A96E;
+  --gold-light: rgba(200,169,110,0.1);
+  --gold-muted: rgba(200,169,110,0.18);
+  --gold-border: rgba(200,169,110,0.25);
+  --teal: #4A7C6F;
+  --teal-light: #7EC8B5;
+  --teal-bg: rgba(74,124,111,0.1);
+  --teal-border: rgba(74,124,111,0.2);
+  --surface-dark: #0D0F0E;
+  --surface-card: #1A1C1B;
+  --surface-elevated: #232523;
+  --surface-cream: #F5F2EC;
+  --surface-light: #F0EDE6;
+  --stone: #8C8880;
+  --stone-muted: #6B6860;
+  --text-primary: #F0EDE6;
+  --text-secondary: #8C8880;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: var(--surface-dark);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.font-serif {
+  font-family: 'DM Serif Display', Georgia, serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(200,169,110,0.2); border-radius: 2px; }
+
+/* Touch targets */
+button, [role="button"] {
+  min-height: 44px;
+  cursor: pointer;
+}
+
+/* Workout timer animation */
+@keyframes pulse-gold {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.timer-active {
+  animation: pulse-gold 1s ease-in-out infinite;
+}
+
+/* Safe area */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+
+/* iPad sidebar layout */
+@media (min-width: 1024px) {
+  .app-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr 320px;
+    min-height: 100vh;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .app-layout {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    min-height: 100vh;
+  }
+}
+
+/* Card hover */
+.card-interactive {
+  transition: border-color 0.15s ease;
+}
+.card-interactive:hover {
+  border-color: var(--gold-border);
+}
+
+/* Progress ring */
+.progress-ring-circle {
+  transition: stroke-dashoffset 0.5s ease;
+}
+
+/* Smooth check animation */
+.check-done {
+  transition: all 0.2s ease;
+}
